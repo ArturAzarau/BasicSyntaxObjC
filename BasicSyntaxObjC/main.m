@@ -193,6 +193,34 @@ int main(int argc, const char * argv[]) {
         }
         
         // MARK: - NSValue
-    }
+        // example
+        NSValue *rect = [NSValue valueWithRect:NSMakeRect(0, 0, 10, 10)];
+        NSValue *point = [NSValue valueWithPoint:NSMakePoint(0, 0)];
+        NSValue *size = [NSValue valueWithSize:NSMakeSize(10, 10)];
+        
+        // MARK: - Blocks
+        // void: The block returns nothing.
+        // (^printUniversalGreeting): Put the block into a variable called “printUniversalGreeting”.
+        // (void): The block accepts no parameters.
+        // = ^{ ... }: The contents of the block..
+        void (^printUniversalGreeting)(void) = ^{
+            NSLog(@"This fucking annoying!");
+        };
+        printUniversalGreeting();
+        
+        // another example
+        NSString* (^printGreeting)(NSString*) = ^(NSString* name) {
+            return [NSString stringWithFormat:@"Hello,%@",name];
+        };
+        
+        // modify variable inside block
+        NSInteger __block anotherNumber = 0;
+        
+        NSString* (^printMeaningOfLife)(void) = ^{
+            anotherNumber = 42;
+            return [NSString stringWithFormat:@"How many roads must a man walk down? %ld.", number];
+        };
+        
+        NSLog(@"%@", printMeaningOfLife());
     return 0;
 }
