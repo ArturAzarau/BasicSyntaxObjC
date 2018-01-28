@@ -109,6 +109,90 @@ int main(int argc, const char * argv[]) {
         // NSStringFromRect(): Give it a CGRect and get back the origin and size in one string.
         // NSStringFromSize(): Give it a CGSize and get back the width and height values.
         // NSStringFromPoint(): Give it a CGPoint and get back the X and Y coordinates.
+        
+        // MARK: - Arrays
+        NSArray * villains = @[@"Weeping Angels", @"Cybermen", @"Daleks", @"Vashta Nerada"];
+        for (NSString * villain in villains) {
+            NSLog(@"Can the doctor defeat the %@? Yes, he can!", villain);
+        }
+        
+        // loop in reverse
+        for (NSString * villain in [villains reverseObjectEnumerator]) {
+            NSLog(@"Can the doctor defeat the %@? Yes, he can!", villain);
+        }
+        
+        // creating array with arrayWithObjects init
+        NSArray * anotherVillains = [NSArray arrayWithObjects:@"Weeping Angels", @"Cybermen", @"Daleks", @"Vashta Nerada", nil];
+        
+        // indexing arrays
+        NSLog(@"The %@ are my favourite villains.", villains[2]);
+        
+        // another way of indexing
+        NSLog(@"The %@ are my favourite villains.", [villains objectAtIndex:2]);
+        
+        // example of count method
+        NSLog(@"The Doctor faced %ld villains in that episode.", (long)[villains count]);
+        
+        // Sorting array
+        NSArray * sorted = [villains sortedArrayUsingSelector:@selector(compare:)];
+        
+        // Functional techniques
+        [villains enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * stop) {
+            NSLog(@"Can the Doctor defeat the %@? Yes, he can!", obj);
+        }];
+        
+        // Key paths
+        NSArray *numbers = [NSArray arrayWithObjects:@1, @2, @3, @4, @5, nil];
+        NSNumber *sum = [numbers valueForKeyPath:@"@sum.self"];
+        NSNumber *avg = [numbers valueForKeyPath:@"@avg.self"];
+        NSNumber *min = [numbers valueForKeyPath:@"@min.self"];
+        NSNumber *max = [numbers valueForKeyPath:@"@max.self"];
+        NSLog(@"Total: %ld", (long)[sum integerValue]);
+        NSLog(@"Avg: %ld", (long)[avg integerValue]);
+        NSLog(@"Min: %ld", (long)[min integerValue]);
+        NSLog(@"Max: %ld", (long)[max integerValue]);
+        
+        // MARK: - Dictionaries
+        // example
+        NSDictionary *ships = @{
+                                @"Serenity" : @"Firefly",
+                                @"Enterprise" : @"Star Trek",
+                                @"Executor" : @"Star Wars"
+                                };
+        
+        // old fucking retarded syntax
+        NSDictionary *anotherShips = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      @"Firefly",@"Serenity",
+                                      @"Star Trek", @"Enterprise",
+                                      @"Star Wars", @"Executor",
+                                      nil];
+        
+        // print out the values
+        // one way
+        for (NSString *key in ships) {
+            NSLog(@"The ship %@ features in %@", key,ships[key]);
+        }
+        
+        // another way
+        for (NSString *key in ships) {
+            NSLog(@"The ship %@ features in %@", key,[ships objectForKey:key]);
+        }
+        
+        // Sets
+        // counted set example
+        NSCountedSet *anotherNumbers = [NSCountedSet setWithObjects: @1, @3, @2, @8, @3, @6, @8, @8, @5, @1, @6, @3, nil];
+        
+        for (NSString *value in [anotherNumbers allObjects]) {
+            NSLog(@"%@ appears %ld times", value, [anotherNumbers countForObject:value]);
+        }
+        
+        // Generics
+        NSArray<NSNumber *> * thirdNumbers = @[@42, @556, @69, @3.141];
+        for (NSString *number in numbers) {
+            NSLog(@"%@ is %ld letters", number, [number length]);
+        }
+        
+        // MARK: - NSValue
     }
     return 0;
 }
