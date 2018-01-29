@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B787890D201D784400B5ADF5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B787890C201D784400B5ADF5 /* main.m */; };
+		B787894C201EC2E000B5ADF5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = B787894B201EC2E000B5ADF5 /* Person.m */; };
+		B787894F201F2CCF00B5ADF5 /* NSString+Trimming.m in Sources */ = {isa = PBXBuildFile; fileRef = B787894E201F2CCF00B5ADF5 /* NSString+Trimming.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,10 @@
 /* Begin PBXFileReference section */
 		B7878909201D784400B5ADF5 /* BasicSyntaxObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BasicSyntaxObjC; sourceTree = BUILT_PRODUCTS_DIR; };
 		B787890C201D784400B5ADF5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B787894A201EC2E000B5ADF5 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		B787894B201EC2E000B5ADF5 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		B787894D201F2CCF00B5ADF5 /* NSString+Trimming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Trimming.h"; sourceTree = "<group>"; };
+		B787894E201F2CCF00B5ADF5 /* NSString+Trimming.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Trimming.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				B787890C201D784400B5ADF5 /* main.m */,
+				B787894A201EC2E000B5ADF5 /* Person.h */,
+				B787894B201EC2E000B5ADF5 /* Person.m */,
+				B787894D201F2CCF00B5ADF5 /* NSString+Trimming.h */,
+				B787894E201F2CCF00B5ADF5 /* NSString+Trimming.m */,
 			);
 			path = BasicSyntaxObjC;
 			sourceTree = "<group>";
@@ -119,6 +129,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B787894C201EC2E000B5ADF5 /* Person.m in Sources */,
+				B787894F201F2CCF00B5ADF5 /* NSString+Trimming.m in Sources */,
 				B787890D201D784400B5ADF5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,8 +244,10 @@
 		B7878911201D784400B5ADF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_NULLABILITY = YES;
 				CODE_SIGN_STYLE = Automatic;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				NEW_SETTING = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -241,8 +255,10 @@
 		B7878912201D784400B5ADF5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_NULLABILITY = YES;
 				CODE_SIGN_STYLE = Automatic;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				NEW_SETTING = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

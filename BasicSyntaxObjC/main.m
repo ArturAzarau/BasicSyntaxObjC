@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Person.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -222,5 +223,23 @@ int main(int argc, const char * argv[]) {
         };
         
         NSLog(@"%@", printMeaningOfLife());
+        
+        // MARK: - Classes
+        Person *person = [Person new];
+        [person printGreetingTo:@"Taylor" atTimeOfDay:@"evening"];
+        
+        // performing a selector
+        [person performSelector:@selector(printGreetingTo:atTimeOfDay:) withObject:@"Taylor" withObject:@"morning"];
+        
+        // availability checking
+        if (@available(iOS 9, *)) {
+            // code goes here
+        }
+        
+        // MARK: Properties
+        person->name = @"Taylor";
+        person.secondName = @"Swift";
+        
+        
     return 0;
 }
